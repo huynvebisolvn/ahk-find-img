@@ -6,49 +6,49 @@ F1::
 stopR := False
 Loop
 {
-	if stopR
-		break
+  if stopR
+    break
 
-	Refresh:="|<>*142$59.zkzzzzzzzzz0TzzzzzzzDEDzzzzzzy7yDzxzbzzwTyDzszbzzlzyTzlzzzzbzwTzXzzzzDzwzz7sC34TztzyDWA00zznzwzSNX1zzbztz0ni3zzDznw1bAbzyTzbtnCNDzszzDX6QnDzXzy0UAlaDyDzw10NrC7sTzzzzzzy0wzzzzzzzz0Tzzzzzzz"
-	if (ok:=FindText(X, Y, 328-150000, 115-150000, 328+150000, 115+150000, 0, 0, Refresh))
-	{
-		MouseClick, left, X, Y
+  Refresh:="|<>*142$59.zkzzzzzzzzz0TzzzzzzzDEDzzzzzzy7yDzxzbzzwTyDzszbzzlzyTzlzzzzbzwTzXzzzzDzwzz7sC34TztzyDWA00zznzwzSNX1zzbztz0ni3zzDznw1bAbzyTzbtnCNDzszzDX6QnDzXzy0UAlaDyDzw10NrC7sTzzzzzzy0wzzzzzzzz0Tzzzzzzz"
+  if (ok:=FindText(X, Y, 328-150000, 115-150000, 328+150000, 115+150000, 0, 0, Refresh))
+  {
+    MouseClick, left, X, Y
 
-		FirstTarget:="|<>*166$55.zzzzzzzzzzsvzzzzzzzbzzzvzDvzX+zzsy1kTXjjzsSAFbVrzzzDC9ly2xzzbj4wyzTzznzYSPrjzztzWDBvzjzwzX7azLrzyTXXnzSzzzDXttrzvzz7XwMxvvzzXU20zTvzzlk1Uznrzzzzzzzzzzzzzzzz"
-		if (ok:=FindText(FirstTargetX := "wait", FirstTargetY := 0.5, 365-150000, 197-150000, 365+150000, 197+150000, 0, 0, FirstTarget))
-		{
-			Plus:="|<>*208$25.zw7zzy3zzz1zzzUzzzkTzzsDzzw7zzy3zzz1ztzUzk00000000000000007z1zrzUzzzkTzzsDzzw7zzy3zzz1zzzUzzzkTzzsDzU"
-			if (ok:=FindText(PlusX, PlusY, 1148-150000, 571-150000, 1148+150000, 571+150000, 0, 0, Plus))
-			{
-				MouseClick, left, PlusX, PlusY, 10
-			}
+    FirstTarget:="|<>*166$55.zzzzzzzzzzsvzzzzzzzbzzzvzDvzX+zzsy1kTXjjzsSAFbVrzzzDC9ly2xzzbj4wyzTzznzYSPrjzztzWDBvzjzwzX7azLrzyTXXnzSzzzDXttrzvzz7XwMxvvzzXU20zTvzzlk1Uznrzzzzzzzzzzzzzzzz"
+    if (ok:=FindText(FirstTargetX := "wait", FirstTargetY := 0.5, 365-150000, 197-150000, 365+150000, 197+150000, 0, 0, FirstTarget))
+    {
+      Plus:="|<>*208$25.zw7zzy3zzz1zzzUzzzkTzzsDzzw7zzy3zzz1ztzUzk00000000000000007z1zrzUzzzkTzzsDzzw7zzy3zzz1zzzUzzzkTzzsDzU"
+      if (ok:=FindText(PlusX, PlusY, 1148-150000, 571-150000, 1148+150000, 571+150000, 0, 0, Plus))
+      {
+        MouseClick, left, PlusX, PlusY, 10
+      }
 
-			Buy:="|<>*103$37.800000C0Q0007US0003kD0001s7U000y7k000T3skkz/VAMMrotaAA0yQn660TCFX33zXslVX7lwQklXswCQtlwC7DwTy63bqDQ000001"
-			if (ok:=FindText(BuyX := "wait", BuyY := 0.5, 1204-150000, 667-150000, 1204+150000, 667+150000, 0, 0, Buy))
-			{
-				MouseClick, left, BuyX, BuyY
-				Sleep, 200
-				MouseClick, left, FirstTargetX, FirstTargetY
+      Buy:="|<>*103$37.800000C0Q0007US0003kD0001s7U000y7k000T3skkz/VAMMrotaAA0yQn660TCFX33zXslVX7lwQklXswCQtlwC7DwTy63bqDQ000001"
+      if (ok:=FindText(BuyX := "wait", BuyY := 0.5, 1204-150000, 667-150000, 1204+150000, 667+150000, 0, 0, Buy))
+      {
+        MouseClick, left, BuyX, BuyY
+        Sleep, 200
+        MouseClick, left, FirstTargetX, FirstTargetY
 
-				Loop
-				{
-					FirstTarget2:="|<>*166$55.zzzzzzzzzzsvzzzzzzzbzzzvzDvzX+zzsy1kTXjjzsSAFbVrzzzDC9ly2xzzbj4wyzTzznzYSPrjzztzWDBvzjzwzX7azLrzyTXXnzSzzzDXttrzvzz7XwMxvvzzXU20zTvzzlk1Uznrzzzzzzzzzzzzzzzz"
-					if (ok:=FindText(FirstTarget2X := "wait", FirstTarget2Y := 0.5, 365-150000, 197-150000, 365+150000, 197+150000, 0, 0, FirstTarget2))
-					{
-						MouseClick, left, PlusX, PlusY, 10
-						MouseClick, left, BuyX, BuyY
-						Sleep, 200
-						MouseClick, left, FirstTargetX, FirstTargetY
-					} else {
-						break
-					}
-					Sleep, 100
-				}
-			}
-		}
-	}
+        Loop
+        {
+          FirstTarget2:="|<>*166$55.zzzzzzzzzzsvzzzzzzzbzzzvzDvzX+zzsy1kTXjjzsSAFbVrzzzDC9ly2xzzbj4wyzTzznzYSPrjzztzWDBvzjzwzX7azLrzyTXXnzSzzzDXttrzvzz7XwMxvvzzXU20zTvzzlk1Uznrzzzzzzzzzzzzzzzz"
+          if (ok:=FindText(FirstTarget2X := "wait", FirstTarget2Y := 0.5, 365-150000, 197-150000, 365+150000, 197+150000, 0, 0, FirstTarget2))
+          {
+            MouseClick, left, PlusX, PlusY, 10
+            MouseClick, left, BuyX, BuyY
+            Sleep, 200
+            MouseClick, left, FirstTargetX, FirstTargetY
+          } else {
+            break
+          }
+          Sleep, 100
+        }
+      }
+    }
+  }
 
-	Sleep, 500
+  Sleep, 500
 }
 return
 
@@ -56,28 +56,27 @@ F2::
 stopR := False
 Loop
 {
-	if stopR
-		break
+  if stopR
+    break
 
+  Cd:="|<>*118$51.zzzzzzwzzzzzzzzXzzzzzzzkDzzzzzzw0zzzzzzz03zzzzzzs0Dzzzzzy00zzzzzzU03zzzzzs00Dzzzzy001zzzzzs00Tzzzzzk07zzzxzy01zzzz61o0TzzzUkDk7zzzsA0z1zzzw2U3wTzzzU00Drzzzs003zzzzz000zzzzzU00Tzzzzs00zzzzzz00Dzzzzzk01zzzzzy1kDzzzw"
+  if (ok:=FindText(X, Y, 1142-150000, 426-150000, 1142+150000, 426+150000, 0, 0, Cd))
+  {
+    MouseClick, left, X, Y
 
-	Cd:="|<>*118$51.zzzzzzwzzzzzzzzXzzzzzzzkDzzzzzzw0zzzzzzz03zzzzzzs0Dzzzzzy00zzzzzzU03zzzzzs00Dzzzzy001zzzzzs00Tzzzzzk07zzzxzy01zzzz61o0TzzzUkDk7zzzsA0z1zzzw2U3wTzzzU00Drzzzs003zzzzz000zzzzzU00Tzzzzs00zzzzzz00Dzzzzzk01zzzzzy1kDzzzw"
-	if (ok:=FindText(X, Y, 1142-150000, 426-150000, 1142+150000, 426+150000, 0, 0, Cd))
-	{
-		MouseClick, left, X, Y
+    Merged:="|<>*154$56.zzzzzzzzvzzzzzzzzwzzzzzzyTmzDDzzzzbwQnnzzzztzzAwxDzzyTvkDA21y1UM803AaTaNYnAQr9btaNUnD9mNyNaEAnnQaTaNUnAwmMbtaN8EDC63yNaEYDzzbzzzzzzzxtzzzzzzzzCTzzzzzs"
+    if (ok:=FindText(MergedX := "wait", MergedY := 2, 816-150000, 259-150000, 816+150000, 259+150000, 0, 0, Merged))
+    {
+      MouseClick, left, MergedX, MergedY
 
-		Merged:="|<>*154$56.zzzzzzzzvzzzzzzzzwzzzzzzyTmzDDzzzzbwQnnzzzztzzAwxDzzyTvkDA21y1UM803AaTaNYnAQr9btaNUnD9mNyNaEAnnQaTaNUnAwmMbtaN8EDC63yNaEYDzzbzzzzzzzxtzzzzzzzzCTzzzzzs"
-		if (ok:=FindText(MergedX := "wait", MergedY := 2, 816-150000, 259-150000, 816+150000, 259+150000, 0, 0, Merged))
-		{
-			MouseClick, left, MergedX, MergedY
-
-			Nhan:="|<>*98$60.0000000000w0AS00C000y0AS00T000T0AS00z000T0AS00vU00TUAS00lU00TkAS000000TkAS000000NsAST0zUtwNwATzVzlzyMwATzX7lzyMSAT7U3twSMTAS7U1tsSMDAS3U3tsCM7wS3UztsCs7wS3VztsCs3wS3XVtsCs1wS3bVtsCs1wS3bVtsCs0wC3bntsCs0QC3XztsCs0QS3XttsC000000U00000000000000000004000U"
-			if (ok:=FindText(NhanX := "wait", NhanY := 2, 1184-150000, 409-150000, 1184+150000, 409+150000, 0, 0, Nhan))
-			{
-				MouseClick, left, NhanX, NhanY
-			}
-		}
-	}
-	Sleep, 1000
+      Nhan:="|<>*98$60.0000000000w0AS00C000y0AS00T000T0AS00z000T0AS00vU00TUAS00lU00TkAS000000TkAS000000NsAST0zUtwNwATzVzlzyMwATzX7lzyMSAT7U3twSMTAS7U1tsSMDAS3U3tsCM7wS3UztsCs7wS3VztsCs3wS3XVtsCs1wS3bVtsCs1wS3bVtsCs0wC3bntsCs0QC3XztsCs0QS3XttsC000000U00000000000000000004000U"
+      if (ok:=FindText(NhanX := "wait", NhanY := 2, 1184-150000, 409-150000, 1184+150000, 409+150000, 0, 0, Nhan))
+      {
+        MouseClick, left, NhanX, NhanY
+      }
+    }
+  }
+  Sleep, 1000
 }
 return
 
