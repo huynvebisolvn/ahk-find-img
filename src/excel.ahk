@@ -76,7 +76,8 @@ ShowPriceTargetSelector() {
     
     Gui, Add, DropDownList, vSelectedTarget w200, %targetList%
     Gui, Add, Button, gStartScript Default w200, Start
-    Gui, Add, Button, gResolution Default w200, 1280x800
+    Gui, Add, Button, gResolution1 w200, 1280x800
+    Gui, Add, Button, gResolution2 w200, 1920x1080
     Gui, Show,, Price Target Selector
     return
     
@@ -93,8 +94,12 @@ ShowPriceTargetSelector() {
         RunPriceTargetScript()
     return
 
-    Resolution:
+    Resolution1:
       ChangeResolutionOnly(1280,800)
+    return
+
+    Resolution2:
+      ChangeResolutionOnly(1920,1080)
     return
 }
 
@@ -152,8 +157,8 @@ Loop
 	{
 		MouseClick, left, X, Y
 
-		Merged:="|<>*154$56.zzzzzzzzvzzzzzzzzwzzzzzzyTmzDDzzzzbwQnnzzzztzzAwxDzzyTvkDA21y1UM803AaTaNYnAQr9btaNUnD9mNyNaEAnnQaTaNUnAwmMbtaN8EDC63yNaEYDzzbzzzzzzzxtzzzzzzzzCTzzzzzs"
-		if (ok:=FindText(MergedX := "wait", MergedY := 2, 816-150000, 259-150000, 816+150000, 259+150000, 0, 0, Merged))
+		Merged:="|<>*155$59.zzzzzzzzzTzzzzzzzzsxxzzzzzDwzttzzzzyTuwnnzzzzwzztbbxzzztzzlDC21z0kC300NYtyNaNbAwn9nwtCTiNtbHbtmQUAnnAbDnYtANbaN4Tb9mMmDA21zCHY1UySQ7yRjQLbzztzzzzzzzztnzzzzzzzzvbzzzzzzk"
+		if (ok:=FindText(MergedX := "wait", MergedY := 2, 816-150000, 247-150000, 816+150000, 247+150000, 0, 0, Merged))
 		{
 			MouseClick, left, MergedX, MergedY
 
