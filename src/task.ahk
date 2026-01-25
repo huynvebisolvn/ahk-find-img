@@ -1,196 +1,53 @@
-; screen: 1280x720
-; graphic: min
-; Full screen mode
-
-; Global variables
-global SelectedPriceTarget := ""
-global SelectedTarget := ""
-global PriceTargets := {}
-global stopLoop := False
-
-; Load Price Targets from config file
-LoadPriceTargets() {
-    global PriceTargets
-    PriceTargets := {}
-    
-    configFile := A_ScriptDir . "\config.txt"
-    if !FileExist(configFile) {
-        MsgBox, 48, Error, File config.txt not found!
-        return false
-    }
-    
-    Loop, Read, %configFile%
-    {
-        line := A_LoopReadLine
-        ; Skip empty lines and comments
-        if (line = "" || SubStr(line, 1, 1) = ";")
-            continue
-        
-        ; Parse line: Name=Value
-        pos := InStr(line, "=")
-        if (pos > 0) {
-            name := SubStr(line, 1, pos-1)
-            value := SubStr(line, pos+1)
-            PriceTargets[name] := value
-        }
-    }
-    return true
+Chuphinh() {
+	Send, {F9}
+	Sleep, 500
+	Send, {Enter}
+	Thoat:="|<>*111$46.zsTzzszzz3zzzlzzsSTzDXzz3lzwT7zsS3zVyDz3w7w7wTszwDVzwzTzsQDzzvzzkVzzzTzzUDzzzzzz9zzzzzzwbzzzzzzUTzzzzzw0zzzTzzVVzzvvzwD3zwTnzVy7z3zXsDw3sTz7lzsT3zyDbznsTzwSTzT3zzszzzsTzzlzzz3zzzXzzsTzzz7zz3zy"
+	if (ok:=FindText(ThoatX := "wait", ThoatY := 2, 1153-150000, 99-150000, 1153+150000, 99+150000, 0, 0, Thoat))
+	{
+	  MouseClick, left, ThoatX, ThoatY
+	}
+	Sleep, 1000
+	Send, {Esc}
+	return
 }
 
-ChangeResolutionOnly(TargetWidth, TargetHeight) {
-    cD := 32
-    rR := 60
-    VarSetCapacity(dM,156,0), NumPut(156,2,&dM,36)
-    DllCall("EnumDisplaySettingsA", UInt,0, UInt,-1, UInt,&dM)
-    NumPut(0x5c0000,dM,40)
-    NumPut(cD,dM,104), NumPut(TargetWidth,dM,108), NumPut(TargetHeight,dM,112), NumPut(rR,dM,120)
-    Return DllCall("ChangeDisplaySettingsA", UInt,&dM, UInt,0)
+Monghoaluc() {
+	Send, {Enter}
+	Sleep, 500
+	MouseClick, left, 35, 150
+	Sleep, 500
+	MouseClick, left, 280, 330
+	Sleep, 500
+	Send, {Esc}
+	return
 }
 
-; Show GUI to select Price Target
-F1::
-ShowPriceTargetSelector()
-return
-
-; Show GUI to select Price Target
-ShowPriceTargetSelector() {
-    global SelectedPriceTarget, PriceTargets, SelectedTarget
-    
-    ; Load price targets from config file
-    if !LoadPriceTargets() {
-        return
-    }
-    
-    ; Create GUI
-    Gui, PriceSelect:New
-    Gui, Font, s10
-    Gui, Add, Text,, Select Price Target:
-    
-    ; Create dropdown list with all available price targets
-    targetList := ""
-    for targetName, targetValue in PriceTargets {
-        if (targetList != "")
-            targetList .= "|"
-        targetList .= targetName
-    }
-    
-    Gui, Add, DropDownList, vSelectedTarget w200, %targetList%
-    Gui, Add, Button, gStartScript Default w200, Start
-    Gui, Add, Button, gResolution1 w200, 1280x720
-    Gui, Add, Button, gResolution2 w200, 1920x1080
-    Gui, Show,, Price Target Selector
-    return
-    
-    StartScript:
-        Gui, Submit, NoHide
-        Gui, Destroy
-        
-        if (SelectedTarget = "") {
-            MsgBox, 48, Warning, Please select a Price Target!
-            return
-        }
-        
-        SelectedPriceTarget := PriceTargets[SelectedTarget]
-        RunPriceTargetScript()
-    return
-
-    Resolution1:
-      ChangeResolutionOnly(1280,720)
-    return
-
-    Resolution2:
-      ChangeResolutionOnly(1920,1080)
-    return
+Haocam() {
+	Send, {F11}
+	Sleep, 1000
+	MouseClick, left, 500, 500
+	Sleep, 2000
+	MouseClick, left, 1200, 170
+	Sleep, 1000
+	MouseClick, left, 825, 270
+	Tang:="|<>*109$42.0000000zwEU0007sTU0003UD00003U000003U000003UTXS0y3Uzbz3y3U3rj7C3U1r7663UDr7663Uzr7763Ulr77w3Vlr73k3Vzr7203Uzr77w00M007y000007D006006600C007i004007wU"
+	if (ok:=FindText(TangX := "wait", TangY := 3, 944-150000, 596-150000, 944+150000, 596+150000, 0, 0, Tang))
+	{
+		MouseClick, left, TangX, TangY
+		Sleep, 1000
+		Send, {Esc}
+		Sleep, 500
+		Send, {Esc}
+	}
+	return
 }
-
-; Main script - unified for all price targets
-RunPriceTargetScript() {
-    global SelectedPriceTarget, stopLoop
-    
-    stopLoop := False
-
-    Refresh:="|<>*142$63.zzzzzzzzzzzzzzzzzzzzzryTzzzzxzjCDtzzzyDXltlzzzzzlwTzyDzzzzy73zTly3UlzksQ3CDWA07y234tnxtaAzmGNnCTkAtbyMmCNnw1bAzn6FnCTbAtbyMmCNnslbAznCNnC0UAlbyRn0tk41bQznwQDDzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzw"
-    if (ok:=FindText(RefreshX := "wait", RefreshY := 0.5, 359-150000, 93-150000, 359+150000, 93+150000, 0, 0, Refresh))
-    {
-        MouseMove, RefreshX, RefreshY
-
-        PlusMax:="|<>*204$35.zzzzzzzzxzzzzzlzzzzz1zzzzw1zzzzkVzzzz3VzzzwDVzzzkzVzzz3zVzzwDzVzzkzzVzz3zzVzwDxzUzUzlzUz3z1zXz7w1z7zTkVzTzz3VzzzwDUzzzUzUzzz3zVzzz7z7zzzTyTzzzzzzz"
-        if (ok:=FindText(PlusMaxX := "wait", PlusMaxY := 0.5, 1219-150000, 488-150000, 1219+150000, 488+150000, 0, 0, PlusMax))
-        {
-            MouseMove, PlusMaxX, PlusMaxY
-            ; main logic
-            Loop
-            {
-                if stopLoop
-                    break
-                ; Use the selected price target from GUI
-                if (ok:=FindText(FirstTargetX, FirstTargetY, 1075-150000, 585-150000, 1075+150000, 585+150000, 0, 0, SelectedPriceTarget))
-                {
-                    MouseClick, left, PlusMaxX, PlusMaxY
-                    Send, {v down}
-                    Sleep, 50
-                    Send, {v up}
-                    Sleep, 200
-                    MouseClick, left, 600, 100
-                }
-                else
-                {
-                    MouseClick, left, RefreshX, RefreshY
-                }
-                Sleep, 950
-            }
-        }
-    }
-    return
-}
-
-F2::
-global stopLoop
-stopLoop := False
-Loop
-{
-    if stopLoop
-        break
-    Cd:="|<>*118$51.zzzzzzwzzzzzzzzXzzzzzzzkDzzzzzzw0zzzzzzz03zzzzzzs0Dzzzzzy00zzzzzzU03zzzzzs00Dzzzzy001zzzzzs00Tzzzzzk07zzzxzy01zzzz61o0TzzzUkDk7zzzsA0z1zzzw2U3wTzzzU00Drzzzs003zzzzz000zzzzzU00Tzzzzs00zzzzzz00Dzzzzzk01zzzzzy1kDzzzw"
-    if (ok:=FindText(X, Y, 1142-150000, 426-150000, 1142+150000, 426+150000, 0, 0, Cd))
-    {
-        MouseClick, left, X, Y
-
-        Merged:="|<>*155$59.zzzzzzzzzTzzzzzzzzsxxzzzzzDwzttzzzzyTuwnnzzzzwzztbbxzzztzzlDC21z0kC300NYtyNaNbAwn9nwtCTiNtbHbtmQUAnnAbDnYtANbaN4Tb9mMmDA21zCHY1UySQ7yRjQLbzztzzzzzzzztnzzzzzzzzvbzzzzzzk"
-        if (ok:=FindText(MergedX := "wait", MergedY := 2, 816-150000, 247-150000, 816+150000, 247+150000, 0, 0, Merged))
-        {
-            MouseClick, left, MergedX, MergedY
-
-            Nhan:="|<>*98$60.0000000000w0AS00C000y0AS00T000T0AS00z000T0AS00vU00TUAS00lU00TkAS000000TkAS000000NsAST0zUtwNwATzVzlzyMwATzX7lzyMSAT7U3twSMTAS7U1tsSMDAS3U3tsCM7wS3UztsCs7wS3VztsCs3wS3XVtsCs1wS3bVtsCs1wS3bVtsCs0wC3bntsCs0QC3XztsCs0QS3XttsC000000U00000000000000000004000U"
-            if (ok:=FindText(NhanX := "wait", NhanY := 2, 1184-150000, 409-150000, 1184+150000, 409+150000, 0, 0, Nhan))
-            {
-                MouseClick, left, NhanX, NhanY
-            }
-        }
-    }
-    Sleep, 1000
-}
-return
 
 PgDn::
-    global stopLoop
-    stopLoop := False
-    Loop
-    {
-        if stopLoop
-           break
-        Send, {r down}
-        Sleep, 2700
-        Send, {Shift}
-        Sleep, 50
-        Send, {r up}
-        Sleep, 400
-    }
-return
-
-~rbutton::
-global stopLoop
-stopLoop := True
+Chuphinh()
+Monghoaluc()
+Haocam()
+Send, {F1}
 return
 
 ;===== Copy The Following Functions To Your Own Code Just once =====
